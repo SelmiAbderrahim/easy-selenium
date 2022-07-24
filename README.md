@@ -9,6 +9,12 @@
 - Chrome or Firefox
 - Python 3.7+
 
+## Installation
+
+```
+pip install easy-py-selenium
+```
+
 ## TOC
 
 - [Undetectable Chrome Driver](easy_selenium/docs/chrome.md)
@@ -29,7 +35,7 @@
 
 ---
 
-Was it <u>useful</u> ?
+Was it **useful** ?
 
 then ⭐it.
 

@@ -20,6 +20,7 @@ setuptools.setup(
     include_package_data=True,
     package_data={
         "easy_selenium.executable": ["*.json"],
+        "easy_selenium.screenshots": ["*.png"],
     },
     classifiers=[
         'Development Status :: 3 - Alpha',
