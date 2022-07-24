@@ -14,3 +14,4 @@ htmlcov
 .env
 logs
 .tox
+easy_selenium/docs
