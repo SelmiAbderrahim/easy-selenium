@@ -208,7 +208,7 @@ easy-selenium will download and launch Geckodriver. But it will be detected as b
 ```
 
 from easy_selenium.driver.firefox.driver import Driver
-driver = Driver()
+driver = Driver(binary_path)
 firefox = driver.create()
 
 firefox.get("https://selmi.tech")
@@ -426,7 +426,6 @@ cd easy-selenium
 To do all the testing, create a '.env' file in your working directory with these values:
 
 ```
-BACKTRACE=1 # (For debugging) 1 = True & 0 = False
 LINKEDIN_EMAIL_ADDRESS=emial@example.com
 LINKEDIN_PASSWORD=password
 ```
@@ -436,7 +435,7 @@ Otherwise uncomment the functions you want to exclude.
 **Run tests**
 
 ```
-pytest easy-selenium/tests/
+pytest easy_selenium/tests/
 ```
 
 <br>
