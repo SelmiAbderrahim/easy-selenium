@@ -1,0 +1,17 @@
+*build*
+easy-selenium/__pycache__
+__pycache__
+*_cache
+env
+*.env
+easy_selenium/executable
+*.log
+dist
+*.egg-info
+htmlcov
+.coverage
+/cookies
+.env
+logs
+*.tox
+.github
