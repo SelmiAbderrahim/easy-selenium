@@ -21,6 +21,7 @@ setuptools.setup(
     package_data={
         "easy_selenium.executable": ["*.json"],
         "easy_selenium.screenshots": ["*.png"],
+        "easy_selenium.docs": ["*.md"],
     },
     classifiers=[
         'Development Status :: 3 - Alpha',
