@@ -13,5 +13,4 @@ htmlcov
 /cookies
 .env
 logs
-*.tox
-.github
+.tox

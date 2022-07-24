@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+
+      - name: Check-out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+          cache: 'pip'
+
+      - name: Checkout Google Chrome
+        uses: nanasess/setup-chromedriver@v1
+
+      - name: Install Google
+        run: |
+          export DISPLAY=:99
+          chromedriver --url-base=/wd/hub &
+          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
+      
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install setuptools twine wheel pytest flake8
+          pip install -r requirements.txt
+      
+      - name: Linkt with flake8
+        run: |
+          flake8 easy_selenium
+
+      - name: Test with pytest
+        run: pytest
+      
+      - name: Pypi
+        run: |
+          python setup.py sdist bdist_wheel
+          twine check dist/*
+          twine upload dist/* -u __token__ -p "${{ secrets.PYPI_API_TOKEN }}" --skip-existing --verbose
