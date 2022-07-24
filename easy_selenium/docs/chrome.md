@@ -23,7 +23,7 @@ easy-selenium will download and patch a Chrome driver to make it undetectable. S
 
 ## Passed the antibot test [](https://bot.sannysoft.com)
 
-![](../screenshots/antibot-tested.png)
+![](https://github.com/SelmiAbderrahim/easy-selenium/blob/master/easy_selenium/screenshots/antibot-tested.png?raw=true)
 
 ## Usage
 
@@ -51,7 +51,7 @@ Note: Make sure to provide the absolute path of your profile and if the given pr
 
 To find path to your chrome profile data you need to type chrome://version/ into address bar . 
 
-![](../screenshots/chrome-version-check.png)
+![](https://github.com/SelmiAbderrahim/easy-selenium/blob/master/easy_selenium/screenshots/chrome-version-check.png?raw=true)
 
 **Headless**
 

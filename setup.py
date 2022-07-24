@@ -1,6 +1,6 @@
 import setuptools
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
@@ -20,7 +20,6 @@ setuptools.setup(
     include_package_data=True,
     package_data={
         "easy_selenium.executable": ["*.json"],
-        "easy_selenium.screenshots": ["*.png"],
         "easy_selenium.docs": ["*.md"],
     },
     classifiers=[
@@ -35,6 +34,6 @@ setuptools.setup(
     ],
     keywords='python automation tools with selenium',
     license='MIT',
-    packages=setuptools.find_packages(include=["easy_selenium", "easy_selenium.*"], exclude=["easy_selenium.tests", "easy_selenium.tests.*"]),
+    packages=setuptools.find_packages(include=["easy_selenium", "easy_selenium.*", "easy_selenium.docs"], exclude=["easy_selenium.tests", "easy_selenium.tests.*"]),
     install_requires=['lucd==0.1.7', 'beautifulsoup4==4.11.1', 'black==22.6.0', 'python-decouple==3.6', 'loguru==0.6.0'],
 )

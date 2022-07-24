@@ -1,5 +1,5 @@
 <div align="center">
-<img src="easy_selenium/screenshots/easy.png" width="200">
+<img src="https://github.com/SelmiAbderrahim/easy-selenium/blob/master/easy_selenium/screenshots/easy.png?raw=true" width="200">
 <p>A list of functionalities that makes working with Selenium much easier.</p>
 </div>
 
