@@ -46,9 +46,8 @@ class Clean:
     def remove_signature_in_javascript(self, chromedriver):
         try:
             if platform.system() == "Windows":
-                os.chmod(chromedriver, 755)
-            else:
                 os.chmod(chromedriver, 777)
+            else:
                 subprocess.Popen(f"sudo chmod 777 {chromedriver}", stdout=subprocess.PIPE, shell=True)
             self.update_binary(chromedriver)
         except Exception as error:
