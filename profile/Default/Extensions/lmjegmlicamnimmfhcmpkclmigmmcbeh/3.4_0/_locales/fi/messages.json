@@ -1,0 +1,11 @@
+{
+   "extensiondescription": {
+      "message": "Avaa Drive-tiedostot suoraan selaimelta tietokoneellasi olevaan yhteensopivaan sovellukseen."
+   },
+   "extensionname": {
+      "message": "Application Launcher For Drive (by Google)"
+   },
+   "extensionshortname": {
+      "message": "Google Drive App Launcher"
+   }
+}

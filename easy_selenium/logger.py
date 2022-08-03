@@ -1,13 +1,14 @@
 from loguru import logger
-from decouple import config, UndefinedValueError
+from decouple import config
 
-try:
-    debug = config("BACKTRACE")
-except UndefinedValueError:
-    debug = 0
+
+debug = config("BACKTRACE", 0)
 logger.add(
-    "debug.log",
-    format="{time: YYYY-MM-DD on HH:MM} | {level} | {message}",
+    "easy-selenium.log",
+    format=(
+        "{time: YYYY-MM-DD on HH:MM} |"
+        " {level} | {message}"
+        ) if debug else "{time: YYYY-MM-DD on HH:MM} | {message}",
     level="INFO",
     rotation="10 MB",
     retention="10 days",

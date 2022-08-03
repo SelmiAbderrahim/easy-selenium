@@ -1,0 +1,11 @@
+{
+   "extensiondescription": {
+      "message": "パソコンにインストールされている互換性のあるアプリケーションを使用して、ブラウザから直接ドライブ ファイルを開くことができます。"
+   },
+   "extensionname": {
+      "message": "ドライブ用アプリケーション ランチャー（Google）"
+   },
+   "extensionshortname": {
+      "message": "Google ドライブ用アプリ ランチャー"
+   }
+}

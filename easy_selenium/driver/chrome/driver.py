@@ -5,19 +5,13 @@ import random
 import os
 from fake_useragent import UserAgent
 import sys
-
+from pathlib import Path
 sys.path.append("......")
 # Local Imports
-from .clean import Clean
 from ..utils import Util
 from ..constants import USER_AGENTS, SYSTEM
-from .download import Download
 from .check import check_user_agent, check_navigator
 from easy_selenium.logger import logger
-
-clean = Clean()
-util = Util()
-download = Download()
 
 
 class Driver:
@@ -25,9 +19,16 @@ class Driver:
     Create a new undetectable Chrome driver instance.
     """
 
-    def __init__(self, user_agent=None):
-        self.user_agent = user_agent
-        self.generate_user_agent()
+    def __init__(self):
+        self._user_agent: str = self.generate_user_agent()
+
+    @property
+    def user_agent(self):
+        return self._user_agent
+
+    @user_agent.setter
+    def user_agent(self, value: str):
+        self._user_agent = value
 
     def generate_user_agent(self):
         try:
@@ -35,13 +36,13 @@ class Driver:
             user_agent = ua["google chrome"]
         except IndexError:
             user_agent = random.choice(USER_AGENTS)
-        self.user_agent = user_agent
+        return user_agent
 
     def create(
         self,
-        headless=False,
-        profile_path="",
-        mute=False,
+        headless: bool = False,
+        profile: Path = "",
+        mute: bool = False,
     ):
         from .check import get_installed_chrome_path
 
@@ -52,8 +53,8 @@ class Driver:
             options.headless = headless
             options.add_argument("--start-maximized")
             options.add_argument("--lang=en-US")
-            if profile_path:
-                options.add_argument(r"--user-data-dir=%s" % profile_path)
+            if profile:
+                options.add_argument(r"--user-data-dir=%s" % profile)
             options.add_experimental_option(
                 "excludeSwitches", ["enable-automation", "enable-logging"]
             )
@@ -74,13 +75,13 @@ class Driver:
             else:
                 driver = check_navigator(driver)
                 driver = check_user_agent(driver)
-                driver.get("https://selmi.tech")
+                driver.get("https://abderrahim.selmi.tech")
                 return driver
         else:
             logger.error("Make sure you have chrome installed on your machine!")
 
 
-class Remote:
+class Remote(Util):
     def create(self, profile=None, debug_port=9222, control_existing_instance=False):
         options = webdriver.ChromeOptions()
         from .check import get_installed_chrome_path
@@ -102,7 +103,7 @@ class Remote:
         except Exception as error:
             logger.critical(f"[-] Driver:Create {error}")
         else:
-            driver.get("https://selmi.tech")
+            driver.get("https://abderrahim.selmi.tech")
             return driver
 
     def open_new_cmd_and_run_command(self, profile_path="", port=9222):
@@ -125,7 +126,7 @@ class Remote:
         if SYSTEM == "Windows":
             os.system("start cmd /k " + cmd)
         else:
-            google = util.whereis_google_chrome()
+            google = self.whereis_google_chrome()
             if not google:
                 raise Exception("whereis: Google Chrome is not installed")
             if not profile_path:

@@ -15,7 +15,7 @@ init()
 class Clean:
     def update_binary(self, path):
         word = "cdc_".encode()
-        new = "tch_".encode()
+        new = "trt_".encode()
         path = path
         while True:
             string = b""
@@ -50,9 +50,6 @@ class Clean:
             else:
                 os.chmod(chromedriver, 777)
                 subprocess.Popen(f"sudo chmod 777 {chromedriver}", stdout=subprocess.PIPE, shell=True)
-            with open(chromedriver, "r", errors="ignore") as chrome:
-                content = chrome.read()
-            content = content.replace("cdc_", "tch_")
             self.update_binary(chromedriver)
         except Exception as error:
             print(colored("[-] Signature: ", "red") + str(error))

@@ -1,0 +1,11 @@
+{
+   "extensiondescription": {
+      "message": "Hiermit können Sie direkt aus Ihrem Browser Drive-Dateien in Anwendungen öffnen, die auf Ihrem Computer installiert sind."
+   },
+   "extensionname": {
+      "message": "Anwendungs-Launcher für Drive (von Google)"
+   },
+   "extensionshortname": {
+      "message": "App Launcher für Google Drive"
+   }
+}

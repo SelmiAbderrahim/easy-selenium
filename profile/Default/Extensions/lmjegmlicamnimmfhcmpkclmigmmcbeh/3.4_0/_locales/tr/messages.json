@@ -1,0 +1,11 @@
+{
+   "extensiondescription": {
+      "message": "Bilgisayarınızda yüklü uyumlu uygulamalarda Drive dosyalarını doğrudan tarayıcınızdan açın."
+   },
+   "extensionname": {
+      "message": "Application Launcher For Drive (by Google)"
+   },
+   "extensionshortname": {
+      "message": "Google Drive Uygulama Başlatıcı"
+   }
+}

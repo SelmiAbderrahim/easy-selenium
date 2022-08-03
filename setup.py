@@ -34,5 +34,5 @@ setuptools.setup(
     keywords='python automation tools with selenium',
     license='MIT',
     packages=setuptools.find_packages(include=["easy_selenium", "easy_selenium.*"], exclude=["easy_selenium.tests", "easy_selenium.tests.*"]),
-    install_requires=['lucd==0.1.7', 'beautifulsoup4==4.11.1', 'black==22.6.0', 'python-decouple==3.6', 'loguru==0.6.0'],
+    install_requires=['lucd==0.1.7', 'python-decouple==3.6', 'loguru==0.6.0'],
 )

@@ -1,0 +1,11 @@
+{
+   "extensiondescription": {
+      "message": "Umožňuje otvírat soubory Disku přímo z prohlížeče v kompatibilních aplikacích nainstalovaných v počítači."
+   },
+   "extensionname": {
+      "message": "Spouštěč aplikací pro Disk (od Googlu)"
+   },
+   "extensionshortname": {
+      "message": "Spouštěč aplikací pro Disk Google"
+   }
+}

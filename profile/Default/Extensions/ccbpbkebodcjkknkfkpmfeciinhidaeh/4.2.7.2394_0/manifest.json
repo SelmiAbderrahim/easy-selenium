@@ -1,0 +1,39 @@
+{
+   "author": "Avira Operations GmbH & Co. KG",
+   "background": {
+      "scripts": [ "js/background/background.js" ]
+   },
+   "browser_action": {
+      "default_icon": {
+         "16": "img/avira_icon16.png",
+         "19": "img/avira_icon19.png",
+         "24": "img/avira_icon24.png",
+         "32": "img/avira_icon32.png",
+         "38": "img/avira_icon38.png"
+      },
+      "default_title": "__MSG_extName__"
+   },
+   "content_scripts": [ {
+      "css": [ "css/content/content.css", "css/content/search.css" ],
+      "js": [ "js/content/common.js", "js/content/content.js" ],
+      "matches": [ "*://*/*" ]
+   }, {
+      "js": [ "js/content/jquery.js", "js/content/landingPage.js" ],
+      "matches": [ "http://*.avira.com/*", "https://*.avira.com/*" ]
+   } ],
+   "content_security_policy": "script-src 'self' http://localhost:4000 https://www.avira.com https://*.offers.avira.com; object-src 'self'",
+   "default_locale": "en",
+   "description": "__MSG_extDescription__",
+   "icons": {
+      "128": "img/avira_icon128.png",
+      "16": "img/avira_icon16.png",
+      "48": "img/avira_icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvvsrDBQzkSUKEBXcrAMkAOWAr8C/Ye9sPQCFsf88wLthAVla9PKKagy+IChk/0kBsl100TzY7sFnnEowxcub78AyLlGVW5LpsHVukVL1e+8m7mYweRUQEa3QueCpQd8ccfkObehrLAA6NQl2STz1vZpdUxxEyAi3zWHDNPoNgzpgskmCqplgdfLNwr70WrcR2fvRfvHIdaooz2yKfpNrQDUr+bZ3wWwhmS+WlGOXwXd8N5hBLTbXmr+wGS3lbSDrghjPjS1YxbcfJOdN8RmlHPZQPUKXirOok1C9QQ49EreoxiShBy11Zt8t9uhtonRT/jJ77ocaljKAJIIUKptPiwIDAQAB",
+   "manifest_version": 2,
+   "name": "__MSG_extName__",
+   "permissions": [ "tabs", "storage", "webRequest", "cookies", "unlimitedStorage", "http://*/*", "https://*/*" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "4.2.7.2394",
+   "web_accessible_resources": [ "html/top.html", "html/card.html", "html/external.html", "html/loading.html", "html/blocked.html", "html/blockedIFrame.html", "html/trackerNotification.html", "html/ExtPermNotification.html", "img/serp_info_safe.svg", "img/serp_info_unsafe.svg", "img/serp_info_warning.svg", "img/logo-avira-antivirus.png" ]
+}

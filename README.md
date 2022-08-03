@@ -32,11 +32,10 @@ pip install easy-py-selenium
   - [Options](#options-2)
 - [Easy authentication](#easy-authentication)
 - [Cookies](#cookies)
-  - [Example](#example)
 - [Utility functions](#utility-functions)
   - [Mimic real user input](#mimic-real-user-input)
   - [Driver safe quit](#driver-safe-quit)
-  - [Send emails through Gmail](#send-emails-through-gmail)
+  - [Send emails](#send-emails)
   - [Scrolling](#scrolling)
   - [userAgent](#useragent)
   - [Screenshots](#screenshots)
@@ -88,7 +87,8 @@ easy-selenium will download and patch a Chrome driver to make it undetectable. S
 from easy_selenium.driver.chrome.driver import Driver
 driver = Driver()
 chrome = driver.create()
-
+# Change useragent
+driver.useragent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
 chrome.get("https://selmi.tech")
 
 ```
@@ -264,6 +264,17 @@ login = Login("example@gmail.com", "password")
 login.start(chrome)
 ```
 
+- ## Google
+
+```
+from easy_selenium.driver.chrome.driver import Remote
+from easy_selenium.authentication.login.google import Login
+driver = Remote()
+chrome = driver.create()
+login = Login("example@gmail.com", "password")
+login.start(chrome)
+```
+
 <br>
 <br>
 
@@ -277,7 +288,7 @@ login.start(chrome)
 
 Get and set cookies with the Selenium methods get_cookies() and add_cookie()
 
-## Example
+**Example**
 
 **Save cookies**
 
@@ -327,13 +338,13 @@ from easy_selenium.common.funcs import driver_safe_quit
 driver_safe_quit(driver, exit=True)
 ```
 
-## Send emails through Gmail
+## Send emails
 
 Many times I had to copy the same function in many Selenium projects.
 
 ```
-from easy_selenium.common.funcs import send_gmail
-send_gmail(message, sender, password, receiver)
+from easy_selenium.common.funcs import send_email
+send_email(message, sender, password, receiver)
 ```
 
 ## Scrolling
@@ -341,8 +352,8 @@ send_gmail(message, sender, password, receiver)
 Keep scrolling until the end of the page
 
 ```
-from easy_selenium.common.funcs import scoll_until_the_end
-scoll_until_the_end(driver)
+from easy_selenium.common.funcs import scroll_until_the_end
+scroll_until_the_end(driver)
 ```
 
 Scroll to an element
@@ -351,6 +362,14 @@ Scroll to an element
 from easy_selenium.common.funcs import scroll_to
 scroll_to(driver, element)
 ```
+
+Scroll from x position to y position
+
+```
+from easy_selenium.common.funcs import scroll_from_to
+scroll_from_to(driver, x, y)
+```
+
 ## userAgent
 
 ```
