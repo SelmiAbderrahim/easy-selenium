@@ -15,3 +15,4 @@ htmlcov
 logs
 .tox
 easy_selenium/docs
+profile
