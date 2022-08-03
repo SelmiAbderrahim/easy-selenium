@@ -1,7 +1,5 @@
 import os
 import json
-
-
 from .download import Download
 from .clean import Clean
 from ..utils import BASE_PATH
@@ -26,7 +24,6 @@ def get_installed_chrome_path():
         download.download_chrome_driver(chrome_driver_name)
         filename = download.extract_chrome_driver_zip(chrome_driver_name)
         path = filename
-        os.chmod(path, 755)
         clean.remove_signature_in_javascript(path)
         return path
 
